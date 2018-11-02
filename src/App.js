@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import MapContainer from './Components/MapContainer';
 import MapNav from"./Components/MapNav";
-import * as FourSquareAPI from './APIs/FourSquare';
+import * as FourSquareAPI from './API/FourSquare';
 
 class App extends Component {
   state = {
