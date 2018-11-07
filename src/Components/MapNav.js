@@ -8,17 +8,18 @@ class MapNav extends Component {
     }
 
     //Toggle Sidebar Menu (filter/query)
-    onHamburgerClick = () => {
-        const sidebar = document.querySelector('.map-sidebar');
-        if (this.state.hamburgerActive) {
-            sidebar.style.transform = 'translateX(-250px)'
-            this.setState({ hamburgerActive: false });
-        }
-        else {
-            sidebar.style.transform = 'translateX(0px)'
-            this.setState({ hamburgerActive: true});
-        }
+  // Toggle sidebar
+  onHamburgerClick = () => {
+    const sidebar = document.querySelector('.map-sidebar');
+    if (this.state.hamburgerActive) {
+      sidebar.style.transform = 'translateX(-250px)'
+      this.setState({ hamburgerActive: false });
     }
+    else {
+      sidebar.style.transform = 'translateX(0px)'
+      this.setState({ hamburgerActive: true });
+    }
+  }
 
     render () {
         return(
