@@ -14,7 +14,6 @@ class App extends Component {
           lng: -104.980830
         },
         img: '',
-        likes: ''
       },
       { 
         name: "Bierstadt Lagerhaus",
@@ -23,7 +22,6 @@ class App extends Component {
           lng: -104.983303
         },
         img: '',
-        likes: ''
       },
       { 
         name: "Ratio Beerworks",
@@ -32,7 +30,6 @@ class App extends Component {
           lng: -104.980435 
         },
         img: '',
-        likes: ''
       },
       { 
         name: "Stem Ciders",
@@ -41,7 +38,6 @@ class App extends Component {
           lng: -104.983106
         },
         img: '',
-        likes: ''
       },
       { 
         name: "Our Mutual Friend Brewing",
@@ -50,7 +46,6 @@ class App extends Component {
           lng: -104.981376
         },
         img: '',
-        likes: ''
       }
     ],
     currentPlaces: [],
@@ -61,47 +56,47 @@ componentDidMount() {
   this.getFourSquareData();
 }
 
-  // Fetch FourSquare data from API
-  getFourSquareData = () => {
-    const newPlaces = this.state.places.map((place) => {
-      const size = 150
-      FourSquareAPI.getFourSquareVenueID(place.location.lat, place.location.lng, place.name)
-        .then((venueId) => {
-          FourSquareAPI.getFourSquareVenueInfo(venueId)
-            .then((venueInfo) => {
-              place.likes = venueInfo.likes.count
-              place.img = venueInfo.bestPhoto.prefix + size + venueInfo.bestPhoto.suffix
-            })
-            .catch(() => this.setState({ requestAvailable: false })
-        )})
-        .catch((e) => alert(e));
-      return place;
-    });
-    this.setState({ currentPlaces: newPlaces });
-  }
-  
-  // Filter a new array of current places based on user query
-  filterPlaces = (query) => {  
-    if (!query) {
-      this.setState({ currentPlaces: [] });
-    }
-    const filteredPlaces = this.state.places.filter((place) => place.name.toLowerCase().includes(query.toLowerCase()));  
-    this.setState({ currentPlaces: filteredPlaces });
-  }
+// Fetch FourSquare data from API
+getFourSquareData = () => {
+  const newPlaces = this.state.places.map((place) => {
+    const size = 150
+    FourSquareAPI.getFourSquareVenueID(place.location.lat, place.location.lng, place.name)
+      .then((venueId) => {
+        FourSquareAPI.getFourSquareVenueInfo(venueId)
+          .then((venueInfo) => {
+            place.likes = venueInfo.likes.count
+            place.img = venueInfo.bestPhoto.prefix + size + venueInfo.bestPhoto.suffix
+          })
+          .catch(() => this.setState({ requestAvailable: false })
+      )})
+      .catch((e) => alert(e));
+    return place;
+  });
+  this.setState({ currentPlaces: newPlaces });
+}
 
-  // Set active marker when clicking list item
-  setActiveMarker = (marker) => {
-    document.querySelector(`[title="${marker}"]`).click();
+// Filter a new array of current places based on user query
+filterPlaces = (query) => {  
+  if (!query) {
+    this.setState({ currentPlaces: [] });
   }
+  const filteredPlaces = this.state.places.filter((place) => place.name.toLowerCase().includes(query.toLowerCase()));  
+  this.setState({ currentPlaces: filteredPlaces });
+}
 
-  render() {
-    return (
-      <div className="App">
-        <MapNav places={this.state.currentPlaces} onQuery={this.filterPlaces} setActiveMarker={this.setActiveMarker}/>
-        <MapContainer places={this.state.currentPlaces} centerCoords={this.state.places[0].location} activeMarker={this.state.activeMarker} showingInfoWindow={this.state.showingInfoWindow} requestAvailable={this.state.requestAvailable}/>  
-      </div>
-    );
-  }
+// Set active marker when clicking list item
+setActiveMarker = (marker) => {
+  document.querySelector(`[title="${marker}"]`).click();
+}
+
+render() {
+  return (
+    <div className="App">
+      <MapNav places={this.state.currentPlaces} onQuery={this.filterPlaces} setActiveMarker={this.setActiveMarker}/>
+      <MapContainer places={this.state.currentPlaces} centerCoords={this.state.places[0].location} activeMarker={this.state.activeMarker} showingInfoWindow={this.state.showingInfoWindow} requestAvailable={this.state.requestAvailable}/>  
+    </div>
+  );
+}
 }
 
 export default App;

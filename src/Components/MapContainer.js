@@ -5,7 +5,6 @@ class MapContainer extends Component {
   state = {
     bounds: {},
     selectedPlace: {},
-    likes: '',
     img: '',
     activeMarker: {},
     showingInfoWindow: true,
@@ -75,8 +74,8 @@ class MapContainer extends Component {
             ) : (
               <div>
                 <h1>{this.state.selectedPlace.name}</h1>
-                <img src={this.state.selectedPlace.img} alt={this.state.selectedPlace.name}/>
-                <h3>Likes: {this.state.selectedPlace.likes}</h3>
+                <img src={this.state.selectedPlace.photos} alt={this.state.selectedPlace.name}/>
+
               </div>
             )
           }
