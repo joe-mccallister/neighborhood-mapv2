@@ -78,6 +78,22 @@ class App extends Component {
           lng: -104.992037
         },
         img: '',
+      },
+      { 
+        name: "Great Divide Barrel Bar",
+        location: {
+          lat: 39.770434, 
+          lng: -104.978126
+        },
+        img: '',
+      },
+      { 
+        name: "Black Shirt Brewing Co",
+        location: {
+          lat: 39.769913, 
+          lng: -104.972856
+        },
+        img: '',
       }
     ],
     currentPlaces: [],
