@@ -3,23 +3,22 @@ import '../App.css';
 
 class MapNav extends Component {
     state = {
-        hamburgerActive: false,
-        query: ''
+      hamburgerActive: false,
+      query: ''
     }
 
     //Toggle Sidebar Menu (filter/query)
-  // Toggle sidebar
-  onHamburgerClick = () => {
-    const sidebar = document.querySelector('.map-sidebar');
-    if (this.state.hamburgerActive) {
-      sidebar.style.transform = 'translateX(-250px)'
-      this.setState({ hamburgerActive: false });
+    onHamburgerClick = () => {
+        const sidebar = document.querySelector('.map-sidebar');
+        if (this.state.hamburgerActive) {
+        sidebar.style.transform = 'translateX(-250px)'
+        this.setState({ hamburgerActive: false });
+        }
+        else {
+        sidebar.style.transform = 'translateX(0px)'
+        this.setState({ hamburgerActive: true });
+        }
     }
-    else {
-      sidebar.style.transform = 'translateX(0px)'
-      this.setState({ hamburgerActive: true });
-    }
-  }
 
     render () {
         return(
@@ -40,13 +39,13 @@ class MapNav extends Component {
         <div className="map-sidebar">
             <input aria-label='Search Filter' className="sidebar-input" onChange={(e) => this.props.onQuery(e.target.value)}></input>
             <ul>
-              {this.props.places.map((place, index) => {
-                return <li 
-                tabIndex='0' 
-                role='button' 
-                aria-label='Place Location' 
-                key={index} 
-                onClick={() => this.props.setActiveMarker(place.name)}>{place.name}
+                {this.props.places.map((place, index) => {
+                    return <li 
+                    tabIndex='0' 
+                    role='button' 
+                    aria-label='Place Location' 
+                    key={index} 
+                    onClick={() => this.props.setActiveMarker(place.name)}>{place.name}
                 </li>
               })}
             </ul>
