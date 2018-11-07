@@ -31,8 +31,8 @@ class MapNav extends Component {
               <div className="hamburger-bar"></div>
             </button>
             <div className="nav-title">
-              <h1>Popular Comedy Clubs</h1>
-              <h4>Powered by FourSquare</h4>
+              <h1>Denver River North (RiNo) Neighborhood Breweries</h1>
+              <h4>Powered by FourSquare & Google Maps</h4>
             </div>
           </nav>
         </div>
