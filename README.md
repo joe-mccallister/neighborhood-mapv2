@@ -1,3 +1,31 @@
+## Neighborhood Maps
+The final project for Udacity FEND program. This is a custom map of local breweries in a specific neighborhood of Denver. The app uses Google Maps API to display the map, while pulling venue information from the FourSquare API (https://foursquare.com/developers)
+
+### Running the app
+Clone the repository or download
+Ensure you have Node installed currently
+
+run npm install
+run npm start
+
+The project should give all dependencies correctly, but I had issues with the difference between react-google-maps and google-maps-react - npm install google-maps-react may need to be installed separately.
+
+### Using the App
+The app will load centered on the River North neighborhood of the Denver metro. Markers are added upon load based on a few breweries which are hard-coded for simplicity. The hamburger menu at the top center of the page can be clicked to expose the search and filter options. 
+
+### Acknowledgements
+FourSquare API: https://foursquare.com/developers
+Google Maps API: https://developers.google.com/maps/documentation/javascript/tutorial
+Yahya Elharony's Youtube: https://www.youtube.com/channel/UCcWSbBe_s-T_gZRnqFbtyIA (seriously great information and walkthrough for building the app without additional libraries - helped me understand what was going on from a higher level before implementing a different approach on my project)
+
+
+
+
+
+### Below you'll find the original documentation created upon running Create React App
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
