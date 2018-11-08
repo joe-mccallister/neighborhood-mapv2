@@ -40,8 +40,11 @@ class MapContainer extends Component {
       width: '100%',
       height: '100%'
     };
+    
+    //check for FourSquare API Availability - request available
     console.log(this.props.requestAvailable)
 
+    //render the map using Google API, also poll FourSquare if available, if not display error 'try again later'
     return (
       <div>
         <Map 
@@ -61,19 +64,22 @@ class MapContainer extends Component {
               animation={this.state.activeMarker.name === place.name &&this.props.google.maps.Animation.BOUNCE}
             />
           )}
+
           <InfoWindow
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}
-
           >
+          
             { !this.props.requestAvailable ? (
               <div>
                 <h1>{this.state.selectedPlace.name}</h1>
-                <h3>Exceeded FourSquare API limit</h3>
+                <h3>{this.state.selectedPlace.popular}</h3>
+                <h3>Exceeded FourSquare API limit, please try again later.</h3>
               </div>
             ) : (
               <div>
                 <h1>{this.state.selectedPlace.name}</h1>
+                <h3>{this.state.selectedPlace.popular}</h3>
                 <img src={this.state.selectedPlace.photos} alt={this.state.selectedPlace.name}/>
 
               </div>
