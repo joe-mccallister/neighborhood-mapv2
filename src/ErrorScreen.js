@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
+//displays error if the Google API doesn't render/pull correctly
 class ErrorScreen extends Component {
   state = {
     errMsg: 'Error: Problem loading Google Maps API'
