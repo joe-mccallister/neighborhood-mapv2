@@ -30,29 +30,13 @@
     transform: rotate(360deg);
   }
 }
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
+.nav-title {
+  font-family: 'Pattaya', sans-serif;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-.map-sidebar {
-  position: absolute;
-  width: 250px;
-  margin-top: 75px;
-  height: calc(100% - 76px);
-  background-color: white;
-  border-top: 1px solid;
-  transform: translate(-250px);
-  z-index: 1;
 }
 
 /* Hamburger from W3 schools */
@@ -72,6 +56,18 @@ code {
   margin: 6px 0;
 }
 
+/* Sidebar Styling */
+
+.map-sidebar {
+  position: absolute;
+  width: 250px;
+  margin-top: 75px;
+  height: calc(100% - 76px);
+  background-color: white;
+  border-top: 1px solid;
+  transform: translate(-250px);
+  z-index: 1;
+}
 .sidebar-input {
   margin-top: 1rem;
 }
@@ -79,17 +75,24 @@ code {
 .map-sidebar ul {
   list-style: none;
   padding: 0;
+
+
 }
 
 .map-sidebar li {
   padding: 1rem;
   cursor: pointer;
+  font-family: 'Oswald', sans-serif;
 }
 
 .map-sidebar li:hover {
-  background-color: black;
-  color: white;
+background: #0F2027;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+color: white;
+font-weight: bold;
 }
+
 /* ErrorScreen */
 
 .error-screen-message {
