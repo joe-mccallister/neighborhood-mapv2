@@ -112,7 +112,6 @@ class App extends Component {
         .then((venueId) => {
           FourSquareAPI.getFourSquareVenueInfo(venueId)
             .then((venueInfo) => {
-              place.likes = venueInfo.likes.count
               place.img = venueInfo.bestPhoto.prefix + size + venueInfo.bestPhoto.suffix
             })
             .catch(() => this.setState({ requestAvailable: false })
